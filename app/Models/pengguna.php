@@ -14,10 +14,9 @@
     ];
 
     public function getPengguna($username, $password){
-        $db = \Config\Database::connect();
-        $query = $db->query("SELECT * FROM pengguna WHERE username = '$username' AND password = '$password'");
-        return $query->getResultArray();
+        return $this->where('username', $username)->first(); 
     }
+
     public function getAllPengguna(){
         return $this->findAll();
     }

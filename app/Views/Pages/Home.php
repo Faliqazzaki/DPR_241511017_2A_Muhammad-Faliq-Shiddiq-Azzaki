@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Admin Page</h1>
+    <h1>User Page</h1>
     <p>Welcome, User</p>
 </body>
 </html>

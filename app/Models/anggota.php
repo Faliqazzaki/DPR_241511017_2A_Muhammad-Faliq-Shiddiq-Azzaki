@@ -5,19 +5,24 @@
     
     class anggota extends Model{
         protected $table = 'anggota';
-        protected $primaryKey = 'id_angggota';
-        protected $allowedFields = ['nama_depan', 
+        protected $primaryKey = 'id_anggota';
+        protected $allowedFields = [
+        'nama_depan', 
         'nama_belakang',
         'gelar_depan',
         'gelar_belakang',
-        'jabaratan',
+        'jabaatan',
         'status_pernikahan'
     ];
 
-    public function getAnggota($nama_depan, $nama_belakang){
+    public function getAnggota(){
         $db = \Config\Database::connect();
-        $query = $db->query("SELECT * FROM users WHERE nama_depan = '$nama_depan + $nama_belakang'");
+        $query = $db->query("SELECT * FROM anggota");
         return $query->getResultArray();
+    }
+
+    public function getAllAnggota(){
+        return $this->findAll();
     }
     }
 ?>

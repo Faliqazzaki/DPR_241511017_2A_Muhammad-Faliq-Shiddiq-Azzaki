@@ -27,5 +27,8 @@ $routes->post('/login/auth', 'LoginPage::auth');
 $routes->get('/home', 'Home::homePage'); // User
 $routes->get('/home/admin', 'Admin::adminPage'); // Admin
 
+// LOGOUT PAGES
+$routes->get('/logout', 'LoginPage::logout');
+
 // DASHBOARD PAGES
 
