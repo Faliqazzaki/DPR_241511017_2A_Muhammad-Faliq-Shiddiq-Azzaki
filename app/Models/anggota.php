@@ -15,10 +15,8 @@
         'status_pernikahan'
     ];
 
-    public function getAnggota(){
-        $db = \Config\Database::connect();
-        $query = $db->query("SELECT * FROM anggota");
-        return $query->getResultArray();
+    public function getAnggotaById($id_anggota){
+        return $this->where('id_anggota', $id_anggota)->first();
     }
 
     public function getAllAnggota(){

@@ -42,4 +42,24 @@ class Data extends BaseController
             return redirect()->to('home/admin');
         }
     }
+
+    public function detailAnggota($id_anggota){
+        $anggotaModel = new anggota();
+
+        $anggota = $anggotaModel->getAnggotaById($id_anggota);
+        // $dataAnggota = [
+        //     'nama_depan' => $anggota['nama_depan'],
+        //     'nama_belakang' => $anggota['nama_belakang'],
+        //     'gelar_depan' => $anggota['gelar_depan'],
+        //     'gelar_belakang' => $anggota['gelar_belakang'],
+        //     'jabatan' => $anggota['jabatan'],
+        //     'status_pernikahan' => $anggota['status_pernikahan']
+        // ];
+        $detailAnggota = view('Data/Detail', ['anggota' => $anggota]);
+        $data = [
+            'title' => 'Detail',
+            'content' => $detailAnggota
+        ];
+        return view('Pages/DetailAnggota', $data);
+    }
 }

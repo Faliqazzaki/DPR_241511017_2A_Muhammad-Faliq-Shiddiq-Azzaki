@@ -41,10 +41,7 @@ class LoginPage extends BaseController
     }
 
      public function logout(){
-        // 1. Hancurkan semua session
         session()->destroy();
-
-        // 2. Redirect ke /login dengan header yang menonaktifkan caching browser
         return redirect()->to('/login');
      }
 }

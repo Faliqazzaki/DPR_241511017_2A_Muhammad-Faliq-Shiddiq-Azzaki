@@ -32,7 +32,9 @@ $routes->get('/logout', 'LoginPage::logout');
 
 // DATA
 $routes->get('/delete/(:num)', 'Data::deleteAnggota/$1');
+$routes->get('/detail/anggota/(:num)', 'Data::detailAnggota/$1');
 $routes->get('/input', 'Data::inputAnggota');
 $routes->post('/input/auth', 'Data::inputAuth');
+
 // DASHBOARD PAGES
 
