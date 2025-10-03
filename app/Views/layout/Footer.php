@@ -36,7 +36,7 @@
     <footer class="mt-auto">
       <div class="container d-flex justify-content-between align-items-center">
         <div>
-          <strong>SIAKAD</strong> &copy; 2025 All Rights Reserved.
+          <strong>MyDPR</strong> &copy; 2025 All Rights Reserved.
         </div>
       </div>
     </footer>

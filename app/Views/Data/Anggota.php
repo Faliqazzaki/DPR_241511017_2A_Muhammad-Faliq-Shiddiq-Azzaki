@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <table>
+    <table border="solid 2px">
         <tr>
             <th>No</th>
             <th>id</th>
@@ -15,7 +15,8 @@
             <th>gelar depan</th>
             <th>gelar belakang</th>
             <th>jabatan</th>
-            <th>statu pernikahan</th>
+            <th>status pernikahan</th>
+            <th>Aksi</th>
         </tr>
 
         <?php if (!empty($anggota)) { ?>
@@ -30,6 +31,12 @@
                     <td><?= $a['gelar_belakang']; ?></td>
                     <td><?= $a['jabatan']; ?></td>
                     <td><?= $a['status_pernikahan']; ?></td>
+                    <td>
+                        <a href="<?= base_url('delete/' . $a['id_anggota']); ?>" onclick="return confirm('Apakah anda ingin menghapus anggota <?= esc($a['nama_depan']);?>')">
+                            Delete
+                        </a>
+                    </td>
+                    <td><button>Details</button></td>
                 </tr>
             <?php } ?>
         <?php } ?>

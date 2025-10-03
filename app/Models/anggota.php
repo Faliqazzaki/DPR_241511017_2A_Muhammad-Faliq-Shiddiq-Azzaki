@@ -11,7 +11,7 @@
         'nama_belakang',
         'gelar_depan',
         'gelar_belakang',
-        'jabaatan',
+        'jabatan',
         'status_pernikahan'
     ];
 
