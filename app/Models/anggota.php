@@ -24,5 +24,6 @@
     public function getAllAnggota(){
         return $this->findAll();
     }
+
     }
 ?>
