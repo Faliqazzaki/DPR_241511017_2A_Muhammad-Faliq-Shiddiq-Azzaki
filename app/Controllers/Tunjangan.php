@@ -22,7 +22,6 @@ class Tunjangan Extends BaseController{
         return view('Pages/KomponenGaji', $data);
     }
 
-
     public function deleteKomponen($id_komponen_gaji){
         $komponenGajiModel = new komponen_gaji();
         $penggajianModel = new penggajian();
@@ -55,6 +54,19 @@ class Tunjangan Extends BaseController{
 
         $komponenGajiModel->insert($data);
         return redirect()->to('komponenGaji');
+    }
+
+    public function penggajian($id_anggota){
+        $penggajianModel = new penggajian();
+        $komponenGajiModel = new komponen_gaji();
+        $detailGaji = $penggajianModel->getDataByIdAnggota($id_anggota);
+        $viewDetailGaji = view('/Data/Penggajian', ['detailGaji' => $detailGaji]);
+        $data = [
+            'title' => 'Penggajian',
+            'content' => $viewDetailGaji
+        ];
+        return view('/Pages/DetailGaji', $data);
+
     }
 }
 ?>

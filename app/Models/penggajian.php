@@ -22,5 +22,16 @@
         return $query->getRow()->total_gaji ?? 0; 
     }
 
+    public function getDataByIdAnggota($id_anggota){
+        $db = \Config\Database::connect();
+        $query = $db->query("
+            SELECT kg.*
+            FROM penggajian p
+            JOIN komponen_gaji kg ON p.id_komponen_gaji = kg.id_komponen_gaji
+            WHERE p.id_anggota = ?
+        ", [$id_anggota]);
+
+        return $query->getResultArray();
+    }
 }
 ?>

@@ -29,6 +29,7 @@
                     <td><?= $a['anggota']['jabatan']; ?></td>
                     <td><?= $a['anggota']['status_pernikahan']; ?></td>
                     <td><?= $a['gaji']; ?></td>
+                    <td><a href="<?= base_url('/detail/gaji' . $a['anggota']['id_anggota']); ?>">Detail Gaji</a></td>
                 </tr>
         <?php } ?>
 

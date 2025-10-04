@@ -66,7 +66,7 @@ class Data extends BaseController
         $gaji = $penggajianModel->getSumOfGajiById($anggota['id_anggota']);
         $detailData = [
             'anggota' => $anggota,
-            'gaji' => $gaji 
+            'gaji' => $gaji
         ];
 
         $detailAnggota = view('Data/Detail', ['detail' => $detailData]);
