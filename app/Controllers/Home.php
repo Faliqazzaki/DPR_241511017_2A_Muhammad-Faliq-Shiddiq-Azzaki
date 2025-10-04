@@ -20,24 +20,48 @@ class Home extends BaseController
             return view("Pages/Home", $data);
     }
 
+    public function penggajianUser(){
+            $anggotaModel = new anggota();
+            $penggajianModel = new penggajian();
+
+            // Ambil semua anggota
+            $semuaAnggota = $anggotaModel->findAll();
+
+            // Buat array hasil
+            $dataGabungan = [];
+            foreach ($semuaAnggota as $a) {
+                $totalGaji = $penggajianModel->getSumOfGajiById($a['id_anggota']);
+
+                $dataGabungan[] = [
+                    'id_anggota' => $a['id_anggota'],
+                    'nama' => $a['nama_depan'],
+                    'jabatan' => $a['jabatan'],
+                    'total_gaji' => $totalGaji
+                ];
+        }
+        $content = view('Data/TabelPenggajianUser', ['listGaji' => $dataGabungan]);
+        return view('Pages/PenggajianUser', ['content' => $content]);
+    }
+
+
     public function penggajian(){
-    $anggotaModel = new anggota();
-    $penggajianModel = new penggajian();
+        $anggotaModel = new anggota();
+        $penggajianModel = new penggajian();
 
-    // Ambil semua anggota
-    $semuaAnggota = $anggotaModel->findAll();
+        // Ambil semua anggota
+        $semuaAnggota = $anggotaModel->findAll();
 
-    // Buat array hasil
-    $dataGabungan = [];
-    foreach ($semuaAnggota as $a) {
-        $totalGaji = $penggajianModel->getSumOfGajiById($a['id_anggota']);
+        // Buat array hasil
+        $dataGabungan = [];
+        foreach ($semuaAnggota as $a) {
+            $totalGaji = $penggajianModel->getSumOfGajiById($a['id_anggota']);
 
-        $dataGabungan[] = [
-            'id_anggota' => $a['id_anggota'],
-            'nama' => $a['nama_depan'],
-            'jabatan' => $a['jabatan'],
-            'total_gaji' => $totalGaji
-        ];
+            $dataGabungan[] = [
+                'id_anggota' => $a['id_anggota'],
+                'nama' => $a['nama_depan'],
+                'jabatan' => $a['jabatan'],
+                'total_gaji' => $totalGaji
+            ];
     }
     $content = view('Data/TabelPenggajian', ['listGaji' => $dataGabungan]);
     return view('Pages/Penggajian', ['content' => $content]);

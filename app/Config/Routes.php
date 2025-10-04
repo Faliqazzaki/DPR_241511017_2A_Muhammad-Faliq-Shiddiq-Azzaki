@@ -29,6 +29,7 @@ $routes->get('/home/admin', 'Admin::adminPage');
 
 // PENGGAJIAN PAGES
 $routes->get('/penggajian', 'Home::penggajian');
+$routes->get('/penggajian/User', 'Home::penggajianUser');
 
 // LOGOUT PAGES
 $routes->get('/logout', 'LoginPage::logout');
