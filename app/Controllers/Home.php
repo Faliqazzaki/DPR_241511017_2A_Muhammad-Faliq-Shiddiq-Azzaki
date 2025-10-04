@@ -13,8 +13,7 @@ class Home extends BaseController
         return view("Pages/Home");
     }
 
-    public function penggajian()
-{
+    public function penggajian(){
     $anggotaModel = new anggota();
     $penggajianModel = new penggajian();
 
@@ -33,11 +32,7 @@ class Home extends BaseController
             'total_gaji' => $totalGaji
         ];
     }
-
-    // Render tabel dinamis
     $content = view('Data/TabelPenggajian', ['listGaji' => $dataGabungan]);
-
-    // Kirim ke wrapper view
     return view('Pages/Penggajian', ['content' => $content]);
 }
 }   

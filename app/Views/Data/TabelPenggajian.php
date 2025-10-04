@@ -70,6 +70,10 @@
                                         <a href="<?= base_url('/detail/gaji/' . $row['id_anggota']); ?>" class="link-detail btn btn-primary">
                                             Detail Gaji
                                         </a>
+                                        <a href="<?= base_url('/delete/gaji/' . $row['id_anggota']); ?>" class="btn btn-danger"
+                                        onclick="return confirm('Apakah anda ingin menghapus gaji <?= esc($row['nama']); ?>?')">
+                                            Delete
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

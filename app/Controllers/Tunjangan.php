@@ -56,16 +56,35 @@ class Tunjangan Extends BaseController{
         return redirect()->to('komponenGaji');
     }
 
-    public function penggajian($id_anggota){
-        $penggajianModel = new penggajian();
-        $detailGaji = $penggajianModel->getDataByIdAnggota($id_anggota);
-        $viewDetailGaji = view('/Data/Penggajian', ['detailGaji' => $detailGaji, 'id_anggota' => $id_anggota]);
-        $data = [
-            'title' => 'Penggajian',
-            'content' => $viewDetailGaji
-        ];
-        return view('/Pages/DetailGaji', $data);
+    public function penggajian($id_anggota)
+{
+    $penggajianModel = new Penggajian();
+    $anggotaModel = new Anggota();
+
+    // Ambil detail gaji anggota
+    $detailGaji = $penggajianModel->getDataByIdAnggota($id_anggota);
+
+    // Ambil data anggota untuk mendapatkan jabatan
+    $anggota = $anggotaModel->find($id_anggota);
+    if (!$anggota) {
+        return redirect()->to('/penggajian')->with('error', 'Anggota tidak ditemukan');
     }
+    $jabatan = $anggota['jabatan'];
+
+    // Load view Penggajian (tabel komponen gaji)
+    $viewDetailGaji = view('/Data/Penggajian', [
+        'detailGaji' => $detailGaji,
+        'id_anggota' => $id_anggota,
+        'jabatan' => $jabatan
+    ]);
+
+    $data = [
+        'title' => 'Penggajian',
+        'content' => $viewDetailGaji
+    ];
+
+    return view('/Pages/DetailGaji', $data);
+}
 
     public function inputPenggajian($jabatan, $id_anggota){
         $komponenGajiModel = new komponen_gaji();
@@ -92,6 +111,12 @@ class Tunjangan Extends BaseController{
         }
 
         return redirect()->to('/detail/gaji/' . $id_anggota)->with('success', 'Data penggajian berhasil disimpan.');
+    }
+
+    public function deleteGaji($id_anggota){
+        $penggajianModel = new penggajian();
+        $penggajianModel->where('id_anggota', $id_anggota)->delete();
+        return redirect()->to('/penggajian')->with('success', 'Komponen berhasil dihapus');
     }
 
     public function editKomponen($id_komponen_gaji){

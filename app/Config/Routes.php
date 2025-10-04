@@ -53,3 +53,4 @@ $routes->post('/edit/gaji/auth', 'Tunjangan::editKomponenAuth');
 $routes->get('/detail/gaji/(:num)', 'Tunjangan::penggajian/$1');
 $routes->get('/input/detail/penggajian/(:any)/(:num)', 'Tunjangan::inputPenggajian/$1/$2');
 $routes->post('/input/detail/penggajian/auth', 'Tunjangan::inputPenggajianAuth');
+$routes->get('/delete/gaji/(:num)', 'Tunjangan::deleteGaji/$1');
