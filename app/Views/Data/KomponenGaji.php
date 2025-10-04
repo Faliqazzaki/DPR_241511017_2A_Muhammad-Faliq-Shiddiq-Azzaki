@@ -27,6 +27,11 @@
                     <td><?= $g['nominal']; ?></td>
                     <td><?= $g['satuan']; ?></td>
                     <td>
+                        <a href="<?= base_url('edit/gaji/' . $g['id_komponen_gaji']); ?>">
+                           edit
+                        </a>
+                    </td>
+                    <td>
                         <a href="<?= base_url('delete/gaji' . $g['id_komponen_gaji']); ?>" onclick="return confirm('Apakah anda ingin menghapus komponen gaji <?= esc($g['nama_komponen']);?> pada kategori <?= esc($g['kategori']); ?>')">
                             Delete
                         </a>

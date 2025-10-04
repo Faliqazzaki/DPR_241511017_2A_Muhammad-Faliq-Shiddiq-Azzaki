@@ -91,7 +91,7 @@ class Data extends BaseController
 
     public function editAnggotaAuth()
     {
-        $anggotaModel = new \App\Models\anggota();
+        $anggotaModel = new anggota();
 
         $id_anggota = $this->request->getPost('id_anggota');
         if (!$id_anggota) {

@@ -43,6 +43,8 @@ $routes->get('/komponenGaji', 'Tunjangan::Komponen_gaji');
 $routes->get('/delete/gaji(:num)', 'Tunjangan::DeleteKomponen/$1');
 $routes->get('/input/komponen', 'Tunjangan::inputKomponen');
 $routes->post('/input/komponen/auth', 'Tunjangan::inputKomponenAuth');
+$routes->get('/edit/gaji/(:num)', 'Tunjangan::editKomponen/$1');
+$routes->post('/edit/gaji/auth', 'Tunjangan::editKomponenAuth');
 
 //DETAIL PENGGAJIAN
 $routes->get('/detail/gaji(:num)', 'Tunjangan::penggajian/$1');

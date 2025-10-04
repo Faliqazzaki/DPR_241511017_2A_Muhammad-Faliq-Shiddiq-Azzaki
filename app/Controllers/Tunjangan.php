@@ -76,7 +76,36 @@ class Tunjangan Extends BaseController{
 
     public function inputPenggajianAuth(){
         $penggajian = new penggajian();
-        
     }
+
+    public function editKomponen($id_komponen_gaji){
+        $komponenGajiModel = new komponen_gaji();
+        $dataKomponen = $komponenGajiModel->find($id_komponen_gaji);
+
+        if (!$dataKomponen) {
+            return redirect()->to('/komponenGaji')->with('error', 'Data tidak ditemukan');
+        }
+
+        return view('/Pages/EditKomponen', ['komponen' => $dataKomponen]);
+    }
+
+   public function editKomponenAuth(){
+        $komponenGajiModel = new komponen_gaji();
+
+        $id_komponen_gaji = $this->request->getPost('id_komponen_gaji');
+
+        $data = [
+            'nama_komponen' => $this->request->getPost('nama_komponen'),
+            'kategori' => $this->request->getPost('kategori'),
+            'jabatan' => $this->request->getPost('jabatan'),
+            'nominal' => $this->request->getPost('nominal'),
+            'satuan' => $this->request->getPost('satuan')
+        ];
+
+        $komponenGajiModel->update($id_komponen_gaji, $data);
+
+        return redirect()->to('/komponenGaji')->with('success', 'Data komponen berhasil diperbarui');
+    }
+
 }
 ?>
