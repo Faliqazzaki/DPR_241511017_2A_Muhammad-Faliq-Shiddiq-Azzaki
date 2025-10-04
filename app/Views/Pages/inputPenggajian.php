@@ -38,7 +38,8 @@
                 <div class="card p-4">
                     <div class="card-body">
                         <h2 class="card-title text-center mb-4">Form Input penggajian</h2>
-                        <form action="/input/detail/auth" method="post">
+                        <form action="/input/detail/penggajian/auth" method="post">
+                             <input type="hidden" name="id_anggota" value="<?= $id_anggota; ?>">
                                 <div class="table-responsive mb-4">
                                     <table class="table table-bordered table-striped w-100 text-center align-middle">
                                         <thead class="table-primary">
@@ -53,6 +54,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php $a = $id_anggota ?>
+                                            <?php 
+                                            $komponen_tersimpan = array_column($penggajian_anggota ?? [], 'id_komponen_gaji');
+                                            ?>
                                             <?php if (!empty($komponen_gaji)) { ?>
                                                 <?php foreach ($komponen_gaji as $g) { ?>
                                                     <tr>
@@ -62,7 +67,9 @@
                                                         <td><?= $g['jabatan']; ?></td>
                                                         <td><?= $g['nominal']; ?></td>
                                                         <td><?= $g['satuan']; ?></td>
-                                                        
+                                                        <td><input type="checkbox" name="selected[]" 
+                                                            value="<?= $g['id_komponen_gaji']; ?>" 
+                                                            <?= in_array($g['id_komponen_gaji'], $komponen_tersimpan) ? 'checked disabled' : '' ?>>
                                                     </tr>
                                                 <?php } ?>
                                             <?php } ?>

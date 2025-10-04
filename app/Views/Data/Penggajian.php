@@ -72,8 +72,7 @@
 
             <?php if (!empty($detailGaji)) : ?>
                 <div class="text-center mt-3">
-                    <a href="<?= base_url('input/detail/penggajian/' . $detailGaji[0]['jabatan']); ?>" 
-                       class="btn btn-primary px-4">
+                        <a href="<?= base_url('input/detail/penggajian/' . $detailGaji[0]['jabatan'] . '/' . $id_anggota); ?>" class="btn btn-primary px-4">
                         + Input
                     </a>
                 </div>

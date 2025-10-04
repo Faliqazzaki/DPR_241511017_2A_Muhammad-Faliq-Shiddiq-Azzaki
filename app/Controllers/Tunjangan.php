@@ -59,7 +59,7 @@ class Tunjangan Extends BaseController{
     public function penggajian($id_anggota){
         $penggajianModel = new penggajian();
         $detailGaji = $penggajianModel->getDataByIdAnggota($id_anggota);
-        $viewDetailGaji = view('/Data/Penggajian', ['detailGaji' => $detailGaji]);
+        $viewDetailGaji = view('/Data/Penggajian', ['detailGaji' => $detailGaji, 'id_anggota' => $id_anggota]);
         $data = [
             'title' => 'Penggajian',
             'content' => $viewDetailGaji
@@ -67,15 +67,31 @@ class Tunjangan Extends BaseController{
         return view('/Pages/DetailGaji', $data);
     }
 
-    public function inputPenggajian($jabatan){
+    public function inputPenggajian($jabatan, $id_anggota){
         $komponenGajiModel = new komponen_gaji();
         $detailKomponen = $komponenGajiModel->getGajiByJabatanSpesif($jabatan);
 
-        return view('/Pages/inputPenggajian', ['komponen_gaji' => $detailKomponen]);
+        return view('/Pages/inputPenggajian', ['komponen_gaji' => $detailKomponen, 'id_anggota' => $id_anggota]);
     }
 
     public function inputPenggajianAuth(){
-        $penggajian = new penggajian();
+        $penggajianModel = new Penggajian();
+        $id_anggota = $this->request->getPost('id_anggota');
+        $selected = $this->request->getPost('selected'); 
+
+        if (!empty($selected)) {
+            foreach ($selected as $id_komponen) {
+                $exists = $penggajianModel->where('id_anggota', $id_anggota)->where('id_komponen_gaji', $id_komponen)->first();
+                if (!$exists) {
+                    $penggajianModel->insert([
+                        'id_anggota' => $id_anggota,
+                        'id_komponen_gaji' => $id_komponen
+                    ]);
+                }
+            }
+        }
+
+        return redirect()->to('/detail/gaji/' . $id_anggota)->with('success', 'Data penggajian berhasil disimpan.');
     }
 
     public function editKomponen($id_komponen_gaji){
