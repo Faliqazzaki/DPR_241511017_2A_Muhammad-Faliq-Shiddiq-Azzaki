@@ -62,7 +62,7 @@
                                                         <td><?= $g['jabatan']; ?></td>
                                                         <td><?= $g['nominal']; ?></td>
                                                         <td><?= $g['satuan']; ?></td>
-                                                        <td><input type="checkbox" name="selected[]" value="<?= $$g['id_komponen_gaji']; ?>"></td>
+                                                        
                                                     </tr>
                                                 <?php } ?>
                                             <?php } ?>

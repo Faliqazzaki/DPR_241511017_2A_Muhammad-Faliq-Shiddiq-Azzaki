@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Gaji</title>
+    <title>Penggajian</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -22,10 +22,20 @@
             background-color: #001f3f;
             color: #fff;
             border-radius: 6px;
+            padding: 6px 14px;
+            text-decoration: none;
         }
         .btn-navy:hover {
             background-color: #003366;
             color: #fff;
+        }
+        .link-detail {
+            color: #001f3f;
+            text-decoration: none;
+        }
+        .link-detail:hover {
+            text-decoration: underline;
+            color: #003366;
         }
     </style>
 </head>
@@ -34,54 +44,47 @@
 <div class="container my-5">
     <div class="card shadow-lg rounded-3">
         <div class="card-header">
-            <h4 class="mb-0">Detail Komponen Gaji</h4>
+            <h4 class="mb-0">Daftar Penggajian</h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-striped table-hover table-bordered align-middle">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Nama Komponen</th>
-                            <th>Kategori</th>
+                            <th>ID Anggota</th>
+                            <th>Nama</th>
                             <th>Jabatan</th>
-                            <th>Nominal</th>
-                            <th>Satuan</th>
+                            <th>Total Gaji</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (!empty($detailGaji)) { ?>
-                            <?php foreach ($detailGaji as $d) { ?>
+                        <?php if (!empty($listGaji)): ?>
+                            <?php foreach ($listGaji as $row): ?>
                                 <tr>
-                                    <td><?= $d['id_komponen_gaji']; ?></td>
-                                    <td><?= $d['nama_komponen']; ?></td>
-                                    <td><?= $d['kategori']; ?></td>
-                                    <td><?= $d['jabatan']; ?></td>
-                                    <td><?= $d['nominal']; ?></td>
-                                    <td><?= $d['satuan']; ?></td>
+                                    <td><?= esc($row['id_anggota']); ?></td>
+                                    <td><?= esc($row['nama']); ?></td>
+                                    <td><?= esc($row['jabatan']); ?></td>
+                                    <td>Rp <?= number_format($row['total_gaji'], 0, ',', '.'); ?></td>
+                                    <td>
+                                        <a href="<?= base_url('/detail/gaji/' . $row['id_anggota']); ?>" class="link-detail btn btn-primary">
+                                            Detail Gaji
+                                        </a>
+                                    </td>
                                 </tr>
-                            <?php } ?>
-                        <?php } else { ?>
+                            <?php endforeach; ?>
+                        <?php else: ?>
                             <tr>
-                                <td colspan="6" class="text-center text-muted">Data komponen gaji tidak tersedia.</td>
+                                <td colspan="5" class="text-center text-muted">Tidak ada data</td>
                             </tr>
-                        <?php } ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
-
-            <?php if (!empty($detailGaji)) : ?>
-                <div class="text-center mt-3">
-                    <a href="<?= base_url('input/detail/penggajian/' . $detailGaji[0]['jabatan']); ?>" 
-                       class="btn btn-primary px-4">
-                        + Input
-                    </a>
-                </div>
-            <?php endif; ?>
         </div>
     </div>
 </div>
-<a href="/home/admin/" style="display: flex; justify-content: center;" class="btn btn-danger">Kembali</a>
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 

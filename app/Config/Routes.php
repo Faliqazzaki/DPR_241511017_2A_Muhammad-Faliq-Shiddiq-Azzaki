@@ -24,8 +24,11 @@ $routes->get('/login', 'LoginPage::index');
 $routes->post('/login/auth', 'LoginPage::auth');
 
 // HOME PAGES
-$routes->get('/home', 'Home::homePage'); // User
-$routes->get('/home/admin', 'Admin::adminPage'); // Admin
+$routes->get('/home', 'Home::homePage'); 
+$routes->get('/home/admin', 'Admin::adminPage'); 
+
+// PENGGAJIAN PAGES
+$routes->get('/penggajian', 'Home::penggajian');
 
 // LOGOUT PAGES
 $routes->get('/logout', 'LoginPage::logout');
@@ -47,6 +50,6 @@ $routes->get('/edit/gaji/(:num)', 'Tunjangan::editKomponen/$1');
 $routes->post('/edit/gaji/auth', 'Tunjangan::editKomponenAuth');
 
 //DETAIL PENGGAJIAN
-$routes->get('/detail/gaji(:num)', 'Tunjangan::penggajian/$1');
+$routes->get('/detail/gaji/(:num)', 'Tunjangan::penggajian/$1');
 $routes->get('/input/detail/penggajian/(:any)', 'Tunjangan::inputPenggajian/$1');
 $routes->post('/input/detail/penggajian/auth', 'Tunjangan::inputPenggajianAuth');

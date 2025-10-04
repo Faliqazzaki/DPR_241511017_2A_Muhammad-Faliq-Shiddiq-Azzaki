@@ -15,7 +15,6 @@
           <h1 style="display: flex; justify-content: center; margin: 10px;">Data Komponen Gaji</h1>
           <?= $content; ?>
         </div>
-        <a href="/input/komponen" style="display: flex; justify-content: center;">Input</a>
       </div>
     </div>
     <?php 

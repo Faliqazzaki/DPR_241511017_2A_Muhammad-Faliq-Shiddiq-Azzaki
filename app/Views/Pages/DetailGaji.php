@@ -14,8 +14,6 @@
             <div class="row">
                 <h1 style="display: flex; justify-content: center; margin: 10px;">Detail Gaji Anggota</h1>
                 <?= $content; ?>
-                
-                <a href="/home/admin/" style="display: flex; justify-content: center;">Kembali</a>
             </div>
         </div>
     </div>
