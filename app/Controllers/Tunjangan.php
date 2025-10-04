@@ -37,6 +37,24 @@ class Tunjangan Extends BaseController{
         return view('/Pages/InputKomponen');
     }
 
-    // public function
+    public function inputKomponenAuth(){
+        $komponenGajiModel = new komponen_gaji();
+        $nama_komponen = $_POST['nama_komponen'];
+        $kategori = $_POST['kategori'];
+        $jabatan = $_POST['jabatan'];
+        $nominal = $_POST['nominal'];
+        $satuan = $_POST['satuan'];
+
+        $data = [
+            'nama_komponen' => $nama_komponen,
+            'kategori' => $kategori,
+            'jabatan' => $jabatan,
+            'nominal' => $nominal,
+            'satuan' => $satuan
+        ];
+
+        $komponenGajiModel->insert($data);
+        return redirect()->to('komponenGaji');
+    }
 }
 ?>

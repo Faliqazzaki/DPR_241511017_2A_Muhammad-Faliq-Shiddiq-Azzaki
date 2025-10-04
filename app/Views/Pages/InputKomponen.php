@@ -37,24 +37,20 @@
             <div class="col-md-8 col-lg-6">
                 <div class="card p-4">
                     <div class="card-body">
-                        <h2 class="card-title text-center mb-4">Form Input Data Komponen Gaji DPR</h2>
-                        <form action="/input/auth" method="post">
+                        <h2 class="card-title text-center mb-4">Form Input Data Komponen Gaji</h2>
+                        <form action="/input/komponen/auth" method="post">
                             <div class="mb-3">
-                                <label for="nama_depan" class="form-label">Nama Depan</label>
-                                <input type="text" class="form-control" name="nama_depan" id="nama_depan" required>
+                                <label for="nama_komponen" class="form-label">Nama Komponen</label>
+                                <input type="text" class="form-control" name="nama_komponen" id="nama_komponen" required>
                             </div>
                             <div class="mb-3">
-                                <label for="nama_belakang" class="form-label">Nama Belakang</label>
-                                <input type="text" class="form-control" name="nama_belakang" id="nama_belakang" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="gelar_depan" class="form-label">Gelar Depan</label>
-                                <input type="text" class="form-control" name="gelar_depan" id="gelar_depan">
-                                <div class="form-text text-muted">Opsional</div> </div>
-                            <div class="mb-3">
-                                <label for="gelar_belakang" class="form-label">Gelar Belakang</label>
-                                <input type="text" class="form-control" name="gelar_belakang" id="gelar_belakang">
-                                <div class="form-text text-muted">Opsional</div>
+                                <label for="kategori" class="form-label">Kategori</label>
+                                <select class="form-select" name="kategori" id="kategori" required>
+                                    <option value="">Pilih Status</option>
+                                    <option value="Gaji Pokok">Gaji Pokok</option>
+                                    <option value="Tunjangan Melekat">Tunjangan Melekat</option>
+                                    <option value="Tunjangan Lain">Tunjangan Lain</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="jabatan" class="form-label">Jabatan</label>
@@ -63,15 +59,21 @@
                                     <option value="Ketua">Ketua</option>
                                     <option value="Wakil Ketua">Wakil ketua</option>
                                     <option value="Anggota">Anggota</option>
+                                    <option value="Semua">Semua</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="status_pernikahan" class="form-label">Status Pernikahan</label>
-                                <select class="form-select" name="status_pernikahan" id="status_pernikahan" required>
+                                <label for="nominal" class="form-label">nominal</label>
+                                <input type="number" class="form-control" name="nominal" id="nominal">
+                                <div class="form-text text-muted">Opsional</div> 
+                            </div>
+                            <div class="mb-3">
+                                <label for="satuan" class="form-label">Satuan</label>
+                                <select class="form-select" name="satuan" id="satuan" required>
                                     <option value="">Pilih Status</option>
-                                    <option value="Kawin">Kawin</option>
-                                    <option value="Cerai Hidup">Cerai Hidup</option>
-                                    <option value="Cerai Mati">Cerai Mati</option>
+                                    <option value="Bulan">Bulan</option>
+                                    <option value="Hari">Hari</option>
+                                    <option value="Periode">Periode</option>
                                 </select>
                             </div>
                             <div class="d-grid gap-2 mt-4">
