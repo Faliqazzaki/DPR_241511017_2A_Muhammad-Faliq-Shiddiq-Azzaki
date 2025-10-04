@@ -35,6 +35,8 @@ $routes->get('/delete/(:num)', 'Data::deleteAnggota/$1');
 $routes->get('/detail/anggota/(:num)', 'Data::detailAnggota/$1');
 $routes->get('/input', 'Data::inputAnggota');
 $routes->post('/input/auth', 'Data::inputAuth');
+$routes->get('/edit/(:num)', 'Data::editDataAnggota/$1');
+$routes->post('/edit/auth', 'Data::editAnggotaAuth');
 
 //TUNJANGAN PAGES
 $routes->get('/komponenGaji', 'Tunjangan::Komponen_gaji');
@@ -44,3 +46,5 @@ $routes->post('/input/komponen/auth', 'Tunjangan::inputKomponenAuth');
 
 //DETAIL PENGGAJIAN
 $routes->get('/detail/gaji(:num)', 'Tunjangan::penggajian/$1');
+$routes->get('/input/detail/penggajian/(:any)', 'Tunjangan::inputPenggajian/$1');
+$routes->post('/input/detail/penggajian/auth', 'Tunjangan::inputPenggajianAuth');

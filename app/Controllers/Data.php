@@ -76,4 +76,39 @@ class Data extends BaseController
         ];
         return view('Pages/DetailAnggota', $data);
     }
+
+    public function editDataAnggota($id_anggota){
+        $anggotaModel = new \App\Models\anggota();
+
+        $anggota = $anggotaModel->getAnggotaById($id_anggota);
+
+        if (!$anggota) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Anggota dengan ID $id_anggota tidak ditemukan");
+        }
+
+        return view('Pages/EditAnggota', ['anggota' => $anggota]);
+    }
+
+    public function editAnggotaAuth()
+    {
+        $anggotaModel = new \App\Models\anggota();
+
+        $id_anggota = $this->request->getPost('id_anggota');
+        if (!$id_anggota) {
+            return redirect()->back()->with('error', 'ID anggota tidak ditemukan.');
+        }
+
+        $data = [
+            'nama_depan'       => $this->request->getPost('nama_depan'),
+            'nama_belakang'    => $this->request->getPost('nama_belakang'),
+            'gelar_depan'      => $this->request->getPost('gelar_depan'),
+            'gelar_belakang'   => $this->request->getPost('gelar_belakang'),
+            'jabatan'          => $this->request->getPost('jabatan'),
+            'status_pernikahan' => $this->request->getPost('status_pernikahan'),
+        ];
+
+        $anggotaModel->update($id_anggota, $data);
+
+        return redirect()->to('/home/admin')->with('success', 'Data anggota berhasil diupdate');
+    }
 }

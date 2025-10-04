@@ -37,6 +37,11 @@
                         </a>
                     </td>
                     <td>
+                        <a href="<?= base_url('edit/' . $a['id_anggota']); ?>">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
                         <a href="<?= base_url('detail/anggota/' . $a['id_anggota']); ?>">
                             Details
                         </a>

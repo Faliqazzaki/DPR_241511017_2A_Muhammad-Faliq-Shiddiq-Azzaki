@@ -23,6 +23,10 @@
         return $this->findAll();
     }
 
+    public function getGajiByJabatanSpesif($jabatan){
+        return $this->where('jabatan', $jabatan)->orWhere('jabatan', 'Semua')->findAll();
+    }
+
     
 
     }

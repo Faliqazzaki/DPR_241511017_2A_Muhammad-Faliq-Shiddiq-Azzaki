@@ -58,7 +58,6 @@ class Tunjangan Extends BaseController{
 
     public function penggajian($id_anggota){
         $penggajianModel = new penggajian();
-        $komponenGajiModel = new komponen_gaji();
         $detailGaji = $penggajianModel->getDataByIdAnggota($id_anggota);
         $viewDetailGaji = view('/Data/Penggajian', ['detailGaji' => $detailGaji]);
         $data = [
@@ -66,7 +65,18 @@ class Tunjangan Extends BaseController{
             'content' => $viewDetailGaji
         ];
         return view('/Pages/DetailGaji', $data);
+    }
 
+    public function inputPenggajian($jabatan){
+        $komponenGajiModel = new komponen_gaji();
+        $detailKomponen = $komponenGajiModel->getGajiByJabatanSpesif($jabatan);
+
+        return view('/Pages/inputPenggajian', ['komponen_gaji' => $detailKomponen]);
+    }
+
+    public function inputPenggajianAuth(){
+        $penggajian = new penggajian();
+        
     }
 }
 ?>
