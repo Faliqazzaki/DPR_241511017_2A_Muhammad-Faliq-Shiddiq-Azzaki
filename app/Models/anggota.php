@@ -23,5 +23,9 @@
         return $this->findAll();
     }
 
+    public function getIdByName($nama_depan){
+        return $this->where('nama_depan', $nama_depan)->first();
+    }
+
     }
 ?>

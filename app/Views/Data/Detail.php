@@ -15,18 +15,20 @@
             <th>gelar belakang</th>
             <th>jabatan</th>
             <th>status pernikahan</th>
+            <th>Gaji</th>
         </tr>
 
-        <?php if (!empty($anggota)) { ?>
-            <?php $a = $anggota ?>
+        <?php if (!empty($detail)) { ?>
+            <?php $a = $detail ?>
                 <tr>
-                    <td><?= $a['id_anggota']; ?></td>
-                    <td><?= $a['nama_depan']; ?></td>
-                    <td><?= $a['nama_belakang']; ?></td>
-                    <td><?= $a['gelar_depan']; ?></td>
-                    <td><?= $a['gelar_belakang']; ?></td>
-                    <td><?= $a['jabatan']; ?></td>
-                    <td><?= $a['status_pernikahan']; ?></td>
+                    <td><?= $a['anggota']['id_anggota']; ?></td>
+                    <td><?= $a['anggota']['nama_depan']; ?></td>
+                    <td><?= $a['anggota']['nama_belakang']; ?></td>
+                    <td><?= $a['anggota']['gelar_depan']; ?></td>
+                    <td><?= $a['anggota']['gelar_belakang']; ?></td>
+                    <td><?= $a['anggota']['jabatan']; ?></td>
+                    <td><?= $a['anggota']['status_pernikahan']; ?></td>
+                    <td><?= $a['gaji']; ?></td>
                 </tr>
         <?php } ?>
 

@@ -91,7 +91,7 @@
             <a class="nav-link" href="/home/admin">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/home/about">Tunjangan</a>
+            <a class="nav-link" href="/komponenGaji">Gaji dan tunjangan</a>
           </li>
         <a class="btn btn-danger btn-logout ms-auto" href="/logout" role="button" >Logout</a>
       </div>

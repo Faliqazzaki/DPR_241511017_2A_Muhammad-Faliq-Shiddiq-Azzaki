@@ -32,7 +32,7 @@
                     <td><?= $a['jabatan']; ?></td>
                     <td><?= $a['status_pernikahan']; ?></td>
                     <td>
-                        <a href="<?= base_url('delete/' . $a['id_anggota']); ?>" onclick="return confirm('Apakah anda ingin menghapus anggota <?= esc($a['nama_depan']);?>')">
+                        <a href="<?= base_url('delete/' . $a['id_anggota']); ?>" onclick="return confirm('Apakah anda ingin menghapus anggota <?= esc($a['nama_depan']);?> <?= esc($a['nama_belakang']); ?>')">
                             Delete
                         </a>
                     </td>

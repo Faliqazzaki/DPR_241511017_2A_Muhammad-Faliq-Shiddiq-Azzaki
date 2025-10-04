@@ -36,5 +36,8 @@ $routes->get('/detail/anggota/(:num)', 'Data::detailAnggota/$1');
 $routes->get('/input', 'Data::inputAnggota');
 $routes->post('/input/auth', 'Data::inputAuth');
 
-// DASHBOARD PAGES
-
+//TUNJANGAN PAGES
+$routes->get('/komponenGaji', 'Tunjangan::Komponen_gaji');
+$routes->get('/delete/gaji(:num)', 'Tunjangan::DeleteKomponen/$1');
+$routes->get('/input/komponen', 'Tunjangan::inputKomponen');
+$routes->post('/input/komponen/auth', 'Tunjangan::inputKomponenAuth');
