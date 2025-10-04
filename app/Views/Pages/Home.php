@@ -6,7 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>User Page</h1>
-    <p>Welcome, User</p>
+    <?php 
+    echo view('layout/HeaderCitizen');
+    ?>
+    <?= $content; ?>
+    <?php 
+    echo view('layout/FooterCitizen');
+    ?>
 </body>
 </html>

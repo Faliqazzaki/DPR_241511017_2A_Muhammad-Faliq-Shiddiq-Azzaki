@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin</title>
+    <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
       /* Navbar gradient dan shadow */
@@ -76,7 +76,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top py-3">
     <div class="container d-flex align-items-center">
       <!-- Brand -->
-      <a class="navbar-brand" href="#">MyDPR admin</a>
+      <a class="navbar-brand" href="#">MyDPR</a>
 
       <!-- Navbar toggler -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

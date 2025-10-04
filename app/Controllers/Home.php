@@ -10,7 +10,14 @@ use App\Models\penggajian;
 class Home extends BaseController
 {
     public function homePage(){
-        return view("Pages/Home");
+        $anggotaModel = new anggota();
+            $anggota = $anggotaModel->getAllAnggota();
+            
+            $detailAnggota = view('Data/AnggotaUser', ['anggota' => $anggota]);
+            $data = [
+                'content' => $detailAnggota
+            ];
+            return view("Pages/Home", $data);
     }
 
     public function penggajian(){
